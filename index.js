@@ -17,7 +17,8 @@ const requestListener = (req, res) => {
     res.end();
   } else {
     res.writeHead(404);
-    res.write("Error: 404");
+    let error = fs.readFileSync(path.join(__dirname, "404.html"), "utf-8");
+    res.write(error);
     res.end();
   }
 };
